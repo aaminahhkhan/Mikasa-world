@@ -149,16 +149,16 @@ button:hover {
   }
   /* User message styles */
 .message.user {
-    background-color: #F4CBB2; /* User message background color */
-    color: #000; /* User message text color */
-    align-self: flex-end; /* Align user messages to the right */
-    border-radius: 15px 15px 0 15px; /* Rounded corners for user messages */
+    background-color: #F4CBB2;
+    color: #000; 
+    align-self: flex-end; 
+    border-radius: 15px 15px 0 15px;
 }
 .message.bot {
-    background-color: #e0e0e0; /* Bot message background color */
-    color: #000; /* Bot message text color */
-    align-self: flex-start; /* Align bot messages to the left */
-    border-radius: 15px 15px 15px 0; /* Rounded corners for bot messages */
+    background-color: #e0e0e0; 
+    color: #000; 
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0; 
 }
 .message-header {
     margin: 0;
