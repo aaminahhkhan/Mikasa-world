@@ -1,3 +1,14 @@
+:root {
+    --color-body: #B892B8;
+    --color-small-contents: #652e55;
+    --color-headers: #BB95BB;
+    --color-shadow: #482a44;
+    --color-other-headers: #EE9A94;
+    --color-fill: #FBEAF3;
+    --color-text: #4b2946;
+    --color-black: #000000;
+    --color-white: #ffffff;
+}
 .game-window {
     position: absolute;
     top: 0;
@@ -16,14 +27,14 @@
 }
 
 .game-header {
-    background: #F4CBB2;
+    background:var(--color-text);
     padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: "Pixelify Sans", sans-serif;
     font-size: 16px;
-    color: #000;
+    color: var(--color-other-headers);
     border-bottom: 2px solid #000;
 }
 
