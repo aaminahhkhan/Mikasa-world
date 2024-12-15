@@ -1,2 +1,11 @@
 # Mikasa-world
-Mikasa World - Retro AOT Fan Website A retro-themed site dedicated to Mikasa Ackerman from Attack on Titan. Features include:  Bio and skills section Kitty chat with fun Mikasa facts 🐱 Gallery and visuals AOT-themed Tic Tac Toe game 🎮 Built with HTML, CSS, and JavaScript.
+🌟 Mikasa World 🌟
+My submission for the Codex.io Hackathon! 🎉
+
+A creative and interactive website inspired by Attack on Titan, showcasing:
+
+🐱 Kitty Chat: A playful feature with Mikasa-themed responses.
+👤 Mikasa Bio: A quick look into Mikasa’s character.
+📷 Gallery: A collection of visuals and fan art.
+🎮 AOT Tic-Tac-Toe Game: A fun twist on the classic game with an anime theme.
+Built using HTML, CSS, and JavaScript, this project merges web development creativity with my love for anime. 💻✨
