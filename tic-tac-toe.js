@@ -51,12 +51,14 @@ function handleCellClick(cell, index) {
 }
 
 function computerMove() {
-    const emptyCells = board.map((cell, i) => (cell ? null : i)).filter(i => i !== null);
-    const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+    // Prioritize winning, then blocking, otherwise choose random
+    const winningMove = findBestMove('Computer');
+    const blockingMove = findBestMove('Player');
+    const move = winningMove !== null ? winningMove : blockingMove !== null ? blockingMove : findRandomMove();
 
     // Computer's move
-    board[randomIndex] = 'Computer';
-    cells[randomIndex].innerHTML = computerSymbol;
+    board[move] = 'Computer';
+    cells[move].innerHTML = computerSymbol;
 
     if (checkWin('Computer')) {
         statusText.textContent = "Computer Wins!";
@@ -90,6 +92,33 @@ function checkWin(player) {
     );
 }
 
+function findBestMove(player) {
+    const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+
+    for (let combo of winningCombinations) {
+        const [a, b, c] = combo;
+        const line = [board[a], board[b], board[c]];
+        if (line.filter(cell => cell === player).length === 2 && line.includes(null)) {
+            return combo[line.indexOf(null)];
+        }
+    }
+    return null;
+}
+
+function findRandomMove() {
+    const emptyCells = board.map((cell, i) => (cell === null ? i : null)).filter(i => i !== null);
+    return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+}
+
 function endGame() {
     isPlayerTurn = false;
 
@@ -103,11 +132,9 @@ function endGame() {
     }
 
     // Show a pop-up with the winner
-    if (statusText.textContent.includes("Wins")) {
-        popupMessage.textContent = statusText.textContent;
-    } else {
-        popupMessage.textContent = "It's a Draw!";
-    }
+    popupMessage.textContent = statusText.textContent.includes("Wins")
+        ? statusText.textContent
+        : "It's a Draw!";
     popup.classList.remove('hidden');
 }
 
