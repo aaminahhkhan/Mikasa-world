@@ -7,10 +7,10 @@ function toggleGameWindow() {
     const iframe = gameWindow.querySelector('iframe');
 
     if (gameWindow.classList.contains('hidden')) {
-        iframe.src = 'tic-tac-toe.html'; // Load Tic Tac Toe
+        iframe.src = 'tic-tac-toe.html'; 
         gameWindow.classList.remove('hidden');
     } else {
-        iframe.src = ''; // Unload game for performance
+        iframe.src = ''; 
         gameWindow.classList.add('hidden');
     }
 }
