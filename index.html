@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="kitty.css">
     <link rel="stylesheet" href="game.css">
 </head>
+ <!-- Loading styles-->
 <style>
     #loading-screen {
     position: fixed;
@@ -96,7 +97,7 @@
         <div class="icon retro-btn" onclick="openAnimeWindow()">
             <p><a href="#">Bio</a></p>
         </div>
-        <!-- Anime window1 -->
+        <!-- Bio window1 -->
         <div id="window1" class="window window1 hidden">
             <header class="window-header">
                 <button class="close-btn" onclick="closeAnimeWindow()">X</button>
@@ -158,6 +159,8 @@
         </div>
         <iframe src="kitty-chat.html" class="chat-iframe"></iframe>
     </div>
+
+ <!-- Loading javascrpit -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const loadingScreen = document.getElementById('loading-screen');
@@ -166,28 +169,30 @@
                 loadingScreen.style.opacity = '0';
                 loadingScreen.style.transition = 'opacity 1s ease-out';
                 setTimeout(() => loadingScreen.style.display = 'none', 1000);
-            }, 5000); // Simulate a 3-second loading delay
+            }, 5000); 
         });
     </script>
     <script src="kitty-chat.js"></script>
     <script src="game.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <!-- javascript for audio -->
     <script>
         function playMikasaAudio() {
             const mikasaAudio = document.getElementById('mikasaAudio');
-            mikasaAudio.play(); // Play the audio for the GIF
+            mikasaAudio.play(); 
         }
         function toggleMessage() {
             const cuteMessage = document.querySelector('.cutemessage');
             cuteMessage.classList.toggle('hidden');
-            playMikasaAudio(); // Play the Mikasa audio when the GIF is clicked
+            playMikasaAudio(); 
 
             if (!cuteMessage.classList.contains('hidden')) {
                 setTimeout(() => {
-                    cuteMessage.classList.add('hidden'); // Hide the message after 3 seconds
+                    cuteMessage.classList.add('hidden'); 
                 }, 3000); // 3000 milliseconds = 3 seconds
             }
         }
+// script for windows
         function openAnimeWindow() {
             const window1 = document.getElementById('window1');
             window1.classList.toggle('hidden'); // Show or hide the anime window
