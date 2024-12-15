@@ -1,80 +1,187 @@
-.modal {
+/* Define variables in :root */
+:root {
+    --primary-bg: #5a189a;
+    /* Purple color for the front side */
+    --secondary-bg: #f4cbb2;
+    /* Light pink for the back side */
+    --border-color: #000000;
+    /* Black border color */
+    --text-color: #ffffff;
+    /* White text color for the front */
+    --font-main: 'Arial', sans-serif;
+    /* Main font */
+    --card-width: 300px;
+    /* Width of the card */
+    --card-height: 400px;
+    /* Height of the card */
+    --transition-time: 0.6s;
+    /* Duration for the flip animation */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    /* Shadow color */
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
+    min-height: 100vh;
+    margin: 0;
+    background-image: none;
+    background-color: var(--secondary-bg);
+    font-family: var(--font-main);
+}
+
+/* Card Container */
+.card-container {
+    perspective: 1000px;
+    /* Adds 3D perspective for the card */
+}
+
+/* Card */
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-time);
+    cursor: pointer;
+}
+
+/* Front and Back Faces */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 200px;
+    height: 490px;
+    backface-visibility: hidden;
+    border: 3px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+/* Front Face */
+.card-front {
+    background: var(--primary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front .gif-image {
     width: 100%;
     height: 100%;
-    
-}
-
-.modal-content {
-    background: #f4cbb2;
-    border: 3px solid #000000;
+    object-fit: cover;
     border-radius: 10px;
+}
+
+/* Flip Effect */
+.card {
+    transform: rotateY(0);
+    /* Default front view */
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+    /* Flip to the back view */
+}
+
+/* Back Face */
+.card-back {
+    background: var(--secondary-bg);
     padding: 20px;
-    width: 80%;
-    max-width: 350px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    transform: rotateY(180deg);
+    color: var(--border-color);
 }
 
-
-.modal-header {
-    display: flex;
-    align-items: center;
-    background-color: #5a189a;
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
-    color: #fff;
-    padding: 10px;
-}
-
-.mikasa-image {
-    width: 80px;
-    height: auto;
-    margin-right: 10px;
-    border: 2px solid #ffb4a2;
+.card-back h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    background: var(--primary-bg);
+    padding: 10px 15px;
     border-radius: 5px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    text-shadow: 2px 2px var(--border-color);
+    margin-bottom: 15px;
+    font-family: 'Comic Sans MS', cursive;
+    /* Retro font for 90s feel */
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.biodata {
-    text-align: left;
+.card-back p {
+    font-size: 1rem;
+    color: var(--border-color);
+    background: var(--secondary-bg);
+    padding: 10px 15px;
+    border-left: 5px solid var(--primary-bg);
+    border-right: 5px solid var(--primary-bg);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    font-family: 'Verdana', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
-.modal-body {
-    margin-top: 10px;
+.card-back ul {
+    list-style: none;
+    /* Remove default bullets */
+    padding-left: 0;
 }
 
-.modal-body h3 {
-    color: #000000;
+.card-back ul li {
+    font-size: 1rem;
+    color: var(--border-color);
+    background: var(--primary-bg);
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    font-family: 'Courier New', monospace;
+    /* Retro font style */
+    text-shadow: 1px 1px var(--border-color);
+    transition: transform 0.2s ease-in-out;
 }
 
-.modal-body ul {
+.card-back ul li:hover {
+    transform: scale(1.1);
+    /* Pop-out effect on hover */
+    cursor: pointer;
+}
+
+
+.card-back ul {
     list-style: square;
-    color: #1a1a1a;
-    margin-left: 20px;
+    padding-left: 20px;
 }
+
+/* Hover Effect for Flip */
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+/* Media Query for Responsiveness */
 @media screen and (max-width: 768px) {
-    .modal-content {
-        padding: 15px; /* Adjust padding if needed */
+    :root {
+        --card-width: 250px;
+        /* Adjust width for smaller screens */
+        --card-height: 350px;
+        /* Adjust height for smaller screens */
+        --font-size-small: 0.9rem;
     }
 
-    .modal-header {
-        font-size: 14px; /* Smaller font size for header */
+    body {
+        background-image: url(baka2.gif);
+        background-size: cover;
     }
 
-    .modal-body h3 {
-        font-size: 16px; /* Smaller font size for h3 */
+    .card-back h2 {
+        font-size: var(--font-size-small);
     }
 
-    .modal-body ul {
-        font-size: 14px; /* Smaller font size for list items */
-    }
-
-    .biodata p {
-        font-size: 12px; /* Smaller font size for biodata paragraphs */
+    .card-back p,
+    .card-back ul {
+        font-size: var(--font-size-small);
     }
 }
