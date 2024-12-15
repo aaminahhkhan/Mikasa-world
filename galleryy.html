@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikasa Gallery</title>
-    <link rel="stylesheet" href="gallery.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="gallery.css"> 
 </head>
 
 <body>
@@ -45,9 +45,9 @@
 
         function changeSlide(direction) {
             const items = document.querySelectorAll('.carousel-item');
-            items[currentSlide].classList.remove('active'); // Hide current slide
-            currentSlide = (currentSlide + direction + items.length) % items.length; // Update current slide index
-            items[currentSlide].classList.add('active'); // Show new slide
+            items[currentSlide].classList.remove('active'); 
+            currentSlide = (currentSlide + direction + items.length) % items.length;
+            items[currentSlide].classList.add('active');
         }
 
         // Automatically change slide every 5 seconds
