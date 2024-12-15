@@ -19,10 +19,6 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     /* Shadow color */
 }
-body,
-html {
-    cursor: url('cursor.png'), auto;
-}
 body {
     display: flex;
     justify-content: center;
