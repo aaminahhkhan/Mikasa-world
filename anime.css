@@ -1,4 +1,4 @@
-/* Define variables in :root */
+/* color variables  */
 :root {
     --primary-bg: #5a189a;
     /* Purple color for the front side */
@@ -125,7 +125,6 @@ body {
 
 .card-back ul {
     list-style: none;
-    /* Remove default bullets */
     padding-left: 0;
 }
 
@@ -138,14 +137,12 @@ body {
     margin-bottom: 10px;
     box-shadow: 0 4px 8px var(--shadow-color);
     font-family: 'Courier New', monospace;
-    /* Retro font style */
     text-shadow: 1px 1px var(--border-color);
     transition: transform 0.2s ease-in-out;
 }
 
 .card-back ul li:hover {
     transform: scale(1.1);
-    /* Pop-out effect on hover */
     cursor: pointer;
 }
 
