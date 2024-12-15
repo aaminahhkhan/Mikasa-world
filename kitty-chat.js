@@ -56,6 +56,7 @@ function sendMessage() {
         // Simulate a bot response after a short delay
         setTimeout(() => {
             const botResponses = [
+                "ereeeeeeh",
                 "Mikasa Ackerman is pawsitively strong! She's one of the fiercest fighters in the Survey Corps.",
                 "She's fur-ever loyal! Her bond with Eren is tighter than my grip on a toy mouse.",
                 "Ackerman power, hiss hiss! Her lineage gives her super-cat reflexes and strength, perfect for taking down Titans.",
