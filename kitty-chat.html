@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitty Chat</title>
+    <script src="kitty-chat.js"></script>
+    <link rel="stylesheet" href="kitty.css">
+</head>
+<body>
+    <!-- Chat Interface -->
+    <div class="chat-window-content">
+        <div class="chat-header">
+            Type anything to get information about Mikasa!!
+        </div>
+        <div class="chat-body" id="chat-body">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button onclick="sendMessage()" id="send-button">Send</button>
+        </div>
+    </div>
+</body>
+</html>

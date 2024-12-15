@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Fan Website</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kitty.css">
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <!-- Left Navigation Menu -->
+    <aside class="sidebar left_sidebar">
+        <div class="icon retro-btn" onclick="openAnimeWindow()">
+            <p><a href="#">Bio</a></p>
+        </div>
+        <!-- Anime window1 -->
+        <div id="window1" class="window window1 hidden">
+            <header class="window-header">
+                <button class="close-btn" onclick="closeAnimeWindow()">X</button>
+            </header>
+            <iframe src="" frameborder="0" style="width: 100%; height: calc(100% - 40px);"></iframe>
+        </div>
+        <!-- Game Icon -->
+        <div class="icon retro-btn" onclick="toggleGameWindow()">
+            <p><a href="#">Game</a></p>
+        </div>
+        <!-- Gallery Icon -->
+        <div class="icon retro-btn" onclick="openGalleryWindow()">
+            <p><a href="#">Gallery</a></p>
+        </div>
+        <!-- Gallery window -->
+        <div id="galleryWindow" class="window hidden">
+            <header class="window-header">
+                <button class="close-btn" onclick="closeGalleryWindow()">X</button>
+            </header>
+            <iframe src="" frameborder="0" style="width: 100%; height: calc(100% - 40px);"></iframe>
+        </div>
+        <!-- Explorer box -->
+        <div class="explorer">
+            <!-- Welcome Section -->
+            <section class="welcomes" id="welcome">
+                <header class="head">Welcome to Mikasa world!</header>
+                <img onclick="toggleMessage(); playMikasaAudio()" src="/m.gif" alt="" class="welcomedance">
+                <div class="cutemessage hidden">I'm Mikasa Ackerman and I will always protect eren!</div>
+                <iframe src="slides.html" frameborder="0" class="welcome-iframe"></iframe>
+                <audio id="mikasaAudio" src="mikasa-says-her-name.mp3"></audio>
+            </section>
+            <!-- Game Window -->
+            <div class="game-window hidden" id="game-window">
+                <header class="game-header">
+                    <span class="game-title">Tic Tac toe</span>
+                    <button class="close-game-btn" onclick="toggleGameWindow()">X</button>
+                </header>
+                <div class="game-content">
+                    <iframe src="./tic-tac-toe.html" class="game-iframe" width="100%" height="500px"
+                        frameborder="0"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- Kitty Chat Icon -->
+    <div class="kitty-chat-icon" onclick="toggleChatWindow(); playAudio()">
+        <img src="cat.jpg" alt="Kitty Chat">
+        <audio id="meowAudio" src="/mixkit-sweet-kitty-meow-93.wav"></audio>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="chat-window hidden" id="chat-window">
+        <div class="chat-header">
+            Kitty Chat
+            <button onclick="toggleChatWindow()">x</button>
+        </div>
+        <iframe src="kitty-chat.html" class="chat-iframe"></iframe>
+    </div>
+
+    <script src="kitty-chat.js"></script>
+    <script src="game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function playMikasaAudio() {
+            const mikasaAudio = document.getElementById('mikasaAudio');
+            mikasaAudio.play(); // Play the audio for the GIF
+        }
+        function toggleMessage() {
+            const cuteMessage = document.querySelector('.cutemessage');
+            cuteMessage.classList.toggle('hidden');
+            playMikasaAudio(); // Play the Mikasa audio when the GIF is clicked
+
+            if (!cuteMessage.classList.contains('hidden')) {
+                setTimeout(() => {
+                    cuteMessage.classList.add('hidden'); // Hide the message after 3 seconds
+                }, 3000); // 3000 milliseconds = 3 seconds
+            }
+        }
+        function openAnimeWindow() {
+            const window1 = document.getElementById('window1');
+            window1.classList.toggle('hidden'); // Show or hide the anime window
+            const iframe = window1.querySelector('iframe');
+            iframe.src = 'anime.html'; // Load anime.html in the iframe
+        }
+        function closeAnimeWindow() {
+            const window1 = document.getElementById('window1');
+            window1.classList.add('hidden'); // Hide the anime window
+            const iframe = window1.querySelector('iframe');
+            iframe.src = ''; // Clear the iframe source to stop any running content
+        }
+        function openGalleryWindow() {
+            const galleryWindow = document.getElementById('galleryWindow');
+            galleryWindow.classList.toggle('hidden');
+            const iframe = galleryWindow.querySelector('iframe');
+            iframe.src = 'galleryy.html'; // Load your gallery HTML file
+        }
+
+        function closeGalleryWindow() {
+            const galleryWindow = document.getElementById('galleryWindow');
+            galleryWindow.classList.add('hidden');
+            const iframe = galleryWindow.querySelector('iframe');
+            iframe.src = ''; // Clear the iframe source to stop any running content
+        }
+    </script>
+</body>
+
+</html>

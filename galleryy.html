@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikasa Gallery</title>
+    <link rel="stylesheet" href="gallery.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="carousel-images">
+            <div class="carousel-item active">
+                <img src="/34855.gif" alt="Image 1">
+                <p class="caption">
+                    Mikasa stands strong and determined, ready to protect her loved ones with unwavering resolve.
+                </p>
+            </div>
+            <div class="carousel-item">
+                <img src="/34863.gif" alt="Image 2">
+                <p class="caption">
+                    With her iconic red scarf, Mikasa embodies loyalty and strength, even in the face of despair.
+                </p>
+            </div>
+            <div class="carousel-item">
+                <img src="/34866.gif" alt="Image 3">
+                <p class="caption">
+                    Her unmatched combat skills and calm demeanor make her a formidable member of the Survey Corps.
+                </p>
+            </div>
+            <div class="carousel-item">
+                <img src="c54c65c28368abbf6927de4f071c40ce.gif" alt="Image 4">
+                <p class="caption">
+                    Mikasa's bond with Eren drives her actions, showing her stoic yet deeply caring nature.
+                </p>
+            </div>
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function changeSlide(direction) {
+            const items = document.querySelectorAll('.carousel-item');
+            items[currentSlide].classList.remove('active'); // Hide current slide
+            currentSlide = (currentSlide + direction + items.length) % items.length; // Update current slide index
+            items[currentSlide].classList.add('active'); // Show new slide
+        }
+
+        // Automatically change slide every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 10000);
+    </script>
+</body>
+
+</html>

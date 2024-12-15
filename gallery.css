@@ -1,0 +1,145 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4cbb2; /* Background color */
+    font-family: 'Pixelify Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Carousel Container */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Limit carousel width */
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black; /* Solid black border for retro feel */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    background-color: #f4cbb2;
+}
+
+/* Carousel Images */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%; /* Ensure one item per view */
+    height: 320px; /* Fixed height for carousel frame */
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%; /* Ensure image fills container width */
+    height: 300px; /* Fixed height for images */
+    object-fit: cover; /* Crop to maintain aspect ratio */
+    border-radius: 5px; /* Round image corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add depth */
+}
+
+/* Caption Styling */
+.caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: #fff; /* White text for contrast */
+    padding: 5px 10px;
+    font-size: 14px; /* Caption font size */
+    width: 100%;
+    text-align: center;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+/* Navigation Buttons */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Black semi-transparent background */
+    color: white; /* White button text */
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add depth */
+    z-index: 100;
+}
+.carousel-item {
+    display: none; /* Hide all items by default */
+}
+
+.carousel-item.active {
+    display: flex; /* Show the active item */
+}
+button:hover {
+    background-color: #7f4c7f; /* Retro purple hover effect */
+}
+
+button:active {
+    transform: translateY(-50%) scale(0.9); /* Shrink effect on click */
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 90%; /* Shrink carousel for tablets */
+    }
+
+    .carousel-item img {
+        height: 250px; /* Smaller height for tablets */
+    }
+
+    .caption {
+        font-size: 12px; /* Adjust font size */
+        padding: 4px 8px;
+    }
+
+    button {
+        font-size: 18px; /* Smaller button size */
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        max-width: 100%; /* Full width on phones */
+    }
+
+    .carousel-item img {
+        height: 200px; /* Smaller height for phones */
+    }
+
+    .caption {
+        font-size: 10px; /* Adjust caption font size */
+    }
+
+    button {
+        font-size: 16px; /* Even smaller button size */
+        width: 30px;
+        height: 30px;
+    }
+}
